@@ -1,0 +1,5 @@
+LDI 10
+DEC Y
+LDA 50
+HLT
+ADD
