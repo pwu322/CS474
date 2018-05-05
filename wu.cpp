@@ -13,6 +13,7 @@ using namespace std;
 
 
 char cmd='0';
+int ProgramCounter;
 
 ALI* program =new ALI();
 
@@ -25,15 +26,23 @@ int main(){
     //program.ALI();
     string line;
     ifstream myfile ("input.sal");
-    cout<< "Welcome to ALI! "<<endl;
+    cout << "Welcome to ALI! " << endl;
 
     while(cmd !='q'){
 
-        cout<<"\nInput a command: "<<endl;
-        cin>> cmd;
+        cout << "\nInput a command: " << endl;
+        cin >> cmd;
         if (cmd=='i'){
             
-            cout<<"\nPrinting input.sat comamnds "<<endl;
+            cout << "\nPrinting input.sat comamnds " << endl;
+             
+             program->PC = 0;
+             program->Ra = 0;
+             program->Rb = 0;
+             program->ZeroBit = 0; 
+             program->OverflowBit = 0;
+
+
             if(myfile.is_open()){
                 while (getline(myfile,line)){
                     //mem[Total_Command_Count] = line;
@@ -42,9 +51,10 @@ int main(){
                     cout << line << '\n';
                 }
                 myfile.close();
+
                 
                
-            }else cout<<"Unable to open file"<<endl;
+            }else cout << "Unable to open file" << endl;
 
         }else if( cmd == 'd'){
 
@@ -56,7 +66,11 @@ int main(){
             break;  // finish program
 
         }else if (cmd == 'p'){
-            cout << program->PC<<endl;
+
+            ProgramCounter = program->PC;
+
+            program->execute(ProgramCounter);
+            cout << program->PC << endl;
             for(int i=0; i<Total_Command_Count; i++){
                 cout << program->MyMemory[i] << endl;
             }

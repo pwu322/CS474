@@ -1,3 +1,11 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <cstring>
+#include <cstdlib>
+#include <cstdio>
+#include <fstream>
+using namespace std;
 
 class ALI{
 
@@ -6,7 +14,7 @@ class ALI{
     int PC;
     int Ra, Rb;
     int ZeroBit, OverflowBit;
-    std::string MyMemory[256];
-    void foobar(char*);
+    string MyMemory[256];
+   ALI& execute(int i);
     private:
 };
