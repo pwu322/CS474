@@ -34,12 +34,14 @@ int main(){
             cout<<"\nPrinting input.sat comamnds "<<endl;
             if(myfile.is_open()){
                 while (getline(myfile,line)){
-                    mem[Total_Command_Count] = line;
+                    //mem[Total_Command_Count] = line;
+                    program.MyMemory[Total_Command_Count] = line;
                     Total_Command_Count++;
                     cout << line << '\n';
                 }
                 myfile.close();
-                program::MyMemory = 
+                
+               
             }else cout<<"Unable to open file"<<endl;
 
         }else if( cmd == 'd'){
@@ -53,7 +55,7 @@ int main(){
 
         }else if (cmd == 'p'){
             for(int i=0; i<Total_Command_Count; i++){
-                cout << mem[i] << endl;
+                cout << program.MyMemory[i] << endl;
             }
         }
     }

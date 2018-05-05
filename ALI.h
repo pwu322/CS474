@@ -1,10 +1,10 @@
 
 class ALI{
     public:
-    Uint8_t PC;
-    Uint32_t Ra, Rb;
-    Uint1_t ZeroBit, OverflowBit;
-    string MyMemory[];
+    uint8_t PC;
+    uint32_t Ra, Rb;
+    int ZeroBit, OverflowBit;
+    std::string MyMemory[256];
     void foobar(char*);
     private:
 };
