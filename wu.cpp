@@ -6,7 +6,6 @@
 #include <cstdlib>
 #include <cstdio>
 #include <fstream>
-#include <cstdint>
 #include "ALI.h"
 
 using namespace std;
@@ -15,7 +14,7 @@ using namespace std;
 
 char cmd='0';
 
-ALI program;
+ALI* program =new ALI();
 
 string mem[MEMORY_SPACE];
 
@@ -38,7 +37,7 @@ int main(){
             if(myfile.is_open()){
                 while (getline(myfile,line)){
                     //mem[Total_Command_Count] = line;
-                    program.MyMemory[Total_Command_Count] = line;
+                    program->MyMemory[Total_Command_Count] = line;
                     Total_Command_Count++;
                     cout << line << '\n';
                 }
@@ -57,9 +56,9 @@ int main(){
             break;  // finish program
 
         }else if (cmd == 'p'){
-            cout << program.PC<<endl;
+            cout << program->PC<<endl;
             for(int i=0; i<Total_Command_Count; i++){
-                cout << program.MyMemory[i] << endl;
+                cout << program->MyMemory[i] << endl;
             }
         }
     }
