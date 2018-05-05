@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <fstream>
+#include <cstdint>
 #include "ALI.h"
 
 using namespace std;
@@ -22,7 +23,7 @@ string mem[MEMORY_SPACE];
 
 int main(){
     int Total_Command_Count=0;
-    //program->ALI();
+    //program.ALI();
     string line;
     ifstream myfile ("input.sal");
     cout<< "Welcome to ALI! "<<endl;
