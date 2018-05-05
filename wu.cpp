@@ -10,6 +10,8 @@
 
 using namespace std;
 #define MEMORY_SPACE 256
+
+
 char cmd='0';
 
 ALI program;
@@ -20,7 +22,7 @@ string mem[MEMORY_SPACE];
 
 int main(){
     int Total_Command_Count=0;
-
+    //program->ALI();
     string line;
     ifstream myfile ("input.sal");
     cout<< "Welcome to ALI! "<<endl;
@@ -54,6 +56,7 @@ int main(){
             break;  // finish program
 
         }else if (cmd == 'p'){
+            cout << program.PC<<endl;
             for(int i=0; i<Total_Command_Count; i++){
                 cout << program.MyMemory[i] << endl;
             }
